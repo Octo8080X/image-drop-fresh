@@ -11,9 +11,8 @@ const envConfig = {
   CF_SIGN_KEY: Deno.env.get("CF_SIGN_KEY")!,
   CF_EXPIRE_SECONDS: Number(Deno.env.get("CF_EXPIRE_SECONDS")!),
   CF_ACCOUNT_HASH: Deno.env.get("CF_ACCOUNT_HASH")!,
-  CF_ACCOUNT_ID:Deno.env.get("CF_ACCOUNT_ID")!,
-  CF_AUTH_TOKEN:Deno.env.get("CF_AUTH_TOKEN")!
+  CF_ACCOUNT_ID: Deno.env.get("CF_ACCOUNT_ID")!,
+  CF_AUTH_TOKEN: Deno.env.get("CF_AUTH_TOKEN")!,
 };
 
 export { envConfig };
-

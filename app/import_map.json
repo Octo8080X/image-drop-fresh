@@ -10,6 +10,7 @@
     "twind/": "https://esm.sh/twind@0.16.17/",
     "dotenv/": "https://deno.land/std@0.157.0/dotenv/",
     "tora-viewer": "https://esm.sh/v99/@toralab/tora-viewer@0.1.2/es2022/tora-viewer.js",
-    "body-scroll-lock": "https://esm.sh/body-scroll-lock"
+    "body-scroll-lock": "https://esm.sh/body-scroll-lock",
+    "simple-dropzone": "https://esm.sh/simple-dropzone"
   }
 }

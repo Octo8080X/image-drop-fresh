@@ -1,7 +1,7 @@
 import { JSX } from "preact";
 import { useEffect, useRef } from "preact/hooks";
 import { mode } from "../util/signal.ts";
-import { SimpleDropzone } from "https://esm.sh/simple-dropzone";
+import { SimpleDropzone } from "simple-dropzone";
 
 export default function Uploader(_props: JSX.HTMLAttributes) {
   const inputRef = useRef(null);
@@ -11,7 +11,6 @@ export default function Uploader(_props: JSX.HTMLAttributes) {
     const result = await fetch("/api/get_temp_post_url");
     const resultJson = await result.json();
     const formData = new FormData();
-
     formData.append("file", file);
 
     const uploadResult = await fetch(resultJson.url, {
@@ -55,7 +54,7 @@ export default function Uploader(_props: JSX.HTMLAttributes) {
               </span>
             </div>
           </div>
-          <input type="file" ref={inputRef} id="asda" class="hidden" multiple />
+          <input type="file" ref={inputRef} class="hidden" multiple />
         </label>
       </div>
     </div>

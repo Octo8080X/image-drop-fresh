@@ -1,5 +1,5 @@
-function bufferToHex(buffer: ArrayBufferLike) {
-  return [...new Uint8Array(buffer)].map((x) => x.toString(16).padStart(2, "0"))
+function bufferToHex(buffer: Uint8Array) {
+  return [...buffer].map((x) => x.toString(16).padStart(2, "0"))
     .join(
       "",
     );
@@ -36,7 +36,7 @@ export async function generateSignedUrl(
     key,
     encoder.encode(stringToSign),
   );
-  const sig = bufferToHex(new Uint8Array(mac).buffer);
+  const sig = bufferToHex(new Uint8Array(mac));
 
   unsignedUrl.searchParams.set("sig", sig);
 

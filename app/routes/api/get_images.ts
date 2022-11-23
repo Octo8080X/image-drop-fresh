@@ -6,11 +6,11 @@ export const handler = async (
   req: Request,
   _ctx: HandlerContext,
 ): Promise<Response> => {
-  const urlSearchParams = new URLSearchParams(new URL(req.url).search)
-  const imageType = urlSearchParams.get("type")
+  const urlSearchParams = new URLSearchParams(new URL(req.url).search);
+  const imageType = urlSearchParams.get("type");
 
-  if(!imageType){
-    throw new Error("Reqire query 'type='")
+  if (!imageType) {
+    throw new Error("Reqire query 'type='");
   }
 
   const result = await fetch(

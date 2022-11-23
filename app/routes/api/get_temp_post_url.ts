@@ -19,14 +19,14 @@ const getUploadUrl = async () => {
     },
   );
 
-  if(!result.ok){
-    throw new Error("")
+  if (!result.ok) {
+    throw new Error("");
   }
 
   const resultJson = await result.json();
 
-  if(!resultJson.result.uploadURL || !resultJson.result.uploadURL){
-    throw new Error("")
+  if (!resultJson.result.uploadURL || !resultJson.result.uploadURL) {
+    throw new Error("");
   }
 
   return resultJson.result.uploadURL;
