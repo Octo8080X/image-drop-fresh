@@ -44,11 +44,11 @@ export default function Uploader(_props: JSX.HTMLAttributes) {
       <div id="dropzone" ref={dropzoneRef}>
         <label class="flex justify-center w-full h-32 px-4 transition bg-white border-4 border-gray-300 border-dashed rounded-lg hover:border-gray-600">
           <div class="flex flex-col items-center m-2">
-            <div class="">
+            <div>
               <ion-icon style={"font-size: 64px;"} name="cloud-upload-outline">
               </ion-icon>
             </div>
-            <div class="">
+            <div>
               <span class="font-medium text-gray-600">
                 Drop or Select
               </span>

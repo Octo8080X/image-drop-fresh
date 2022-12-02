@@ -56,12 +56,15 @@ export default function Images(_props: JSX.HTMLAttributes) {
         {!miniImages
           ? ""
           : miniImages.map((image: { url: string }, index: number) => (
-            <div class="my-2 px-1 w-32 w-full" key={`key-${index}`}>
+            <div
+              class="my-2 px-1 w-32 w-full"
+              key={`key-${image.key}`}
+              style="background-image: url(/logo.svg); background-repeat: no-repeat; background-position: center center;"
+            >
               <img
                 src={image.url}
-                onClick={() =>
-                  openViewer(index)}
-                class="mx-auto rounded-lg hover:rotate-3"
+                onClick={() => openViewer(index)}
+                class="w-32 h-32 mx-auto rounded-lg border-gray-300 border-4 hover:rotate-6"
               />
             </div>
           ))}

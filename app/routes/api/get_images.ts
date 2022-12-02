@@ -1,7 +1,7 @@
 import { HandlerContext } from "$fresh/server.ts";
 import { generateSignedUrl } from "../../util/cloudflare-images.ts";
 import { envConfig } from "../../util/config.ts";
-
+import { hash } from "huid/mod.ts";
 export const handler = async (
   req: Request,
   _ctx: HandlerContext,
@@ -35,6 +35,7 @@ export const handler = async (
           envConfig.CF_EXPIRE_SECONDS,
           envConfig.CF_SIGN_KEY,
         ),
+        key: hash(i.object_id),
       };
     }),
   );
