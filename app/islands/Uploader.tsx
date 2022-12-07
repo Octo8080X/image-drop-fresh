@@ -2,12 +2,15 @@ import { JSX } from "preact";
 import { useEffect, useRef } from "preact/hooks";
 import { mode } from "../util/signal.ts";
 import { SimpleDropzone } from "simple-dropzone";
+import UploaderIcon from "../components/UpLoadIcon.tsx"
 
 export default function Uploader(_props: JSX.HTMLAttributes) {
-  const inputRef = useRef(null);
-  const dropzoneRef = useRef(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const dropzoneRef = useRef<HTMLDivElement>(null);
 
   const upload = async (file: File) => {
+    if(!inputRef.current) return
+
     const result = await fetch("/api/get_temp_post_url");
     const resultJson = await result.json();
     const formData = new FormData();
@@ -33,7 +36,7 @@ export default function Uploader(_props: JSX.HTMLAttributes) {
   useEffect(() => {
     const dropCtrl = new SimpleDropzone(dropzoneRef.current, inputRef.current);
     dropCtrl.on("drop", ({ files }: { files: Map<number, File> }) => {
-      for (let [_key, value] of files) {
+      for (const [_key, value] of files) {
         upload(value);
       }
     });
@@ -45,8 +48,7 @@ export default function Uploader(_props: JSX.HTMLAttributes) {
         <label class="flex justify-center w-full h-32 px-4 transition bg-white border-4 border-gray-300 border-dashed rounded-lg hover:border-gray-600">
           <div class="flex flex-col items-center m-2">
             <div>
-              <ion-icon style={"font-size: 64px;"} name="cloud-upload-outline">
-              </ion-icon>
+              <UploaderIcon style={"font-size: 64px;"} name="cloud-upload-outline" />
             </div>
             <div>
               <span class="font-medium text-gray-600">
